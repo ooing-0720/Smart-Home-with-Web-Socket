@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="smart_style.css">
+    <script type = "text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+<body>
+    <header>SMART HOME CONTROL<br><span id='clock'></span></header>
+    <article>
+            <!-- 윗부분 -->
+        <div class="info_top">
+            <div class="electric_tab">
+                <ul class="tabnav">
+                    <li><a href="#tab01">평균 전력</a></li>
+                    <li><a href="#tab02">사용 전력</a></li>
+                </ul>
+                <div class="tabcontent">
+                    <div id="tab01">
+                        <canvas id="bar-chart" style="width: 25vw; max-height: 45vh; margin-top: 3vh;"></canvas>
+                    </div>
+                    <div id="tab02">
+                        <canvas id="doughnut-chart" style="max-height: 60vh; max-width: 60vh; margin: 0 auto; margin-top: 2vh;"></canvas>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="status" id="status">
+                <h3 class="status_1">현재 상태</h3>
+                <div class="room_status" id="room_status"></div>
+            </div>
+    
+            <div class="weather">
+                <h3 class="status_1">날씨</h3>
+                <div class="icon"></div>
+                <div class="temperature"></div>
+                <div class="humidity"></div>
+            </div>
+        </div>
+    
+        <!-- 아랫부분 -->
+        <div class="info_bottom">
+            <div class="living_room">
+                <h3 class="living_1">거 실</h3>
+                <label class="switch">
+                    <input id="ts" type="checkbox" onclick="doSend(this)"> <!--스위치 클릭시 doSend에 자기 자신 주면서 호출-->
+                    <span class="slider round"></span>
+                </label>
+                <span id="switching">
+                    <p id="off">에어컨<br/>OFF</p><p id="on" style="display:none">에어컨<br/>ON</p>
+                </span>
+                
+                    <button class="living_window" id="living_window" onclick="windowcontrol()"></button> <!--이거 함수 다른 거 만들어야 함-->
+                
+                
+                <button class="living_light" id="living_light" onclick="light1control()"></button>
+            </div>
+    
+            <div class="room">
+                <h3 class="room_1">방</h3>
+                <button class="room_window" id="room_window" onclick="windowcontrol()"></button>
+                <button class="room_light" id="room_light" onclick="light2control()"></button>
+            </div>
+        </div>
+    </article>
+    <footer class="license">
+        <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    </footer>
+    <script src="page_01.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
